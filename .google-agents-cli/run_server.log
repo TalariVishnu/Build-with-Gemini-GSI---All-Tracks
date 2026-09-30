@@ -1,0 +1,1005 @@
+=== Starting server at 2026-09-30T04:41:32.104505+00:00 ===
+Command: uv run adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/demo-agent
+=== Started server process 264163 ===
+warning: `VIRTUAL_ENV=/lsiopy` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.2MiB)
+ Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
+Using CPython 3.13.14
+Creating virtual environment at: .venv
+   Building demo-agent @ file:///config/Desktop/Session1/demo-agent
+Downloading cryptography (4.5MiB)
+Downloading google-adk (4.6MiB)
+Downloading pydantic-core (2.0MiB)
+Downloading aiohttp (1.7MiB)
+Downloading grpcio (6.8MiB)
+Downloading google-cloud-discoveryengine (3.2MiB)
+ Downloaded pydantic-core
+ Downloaded aiohttp
+ Downloaded grpcio
+ Downloaded cryptography
+ Downloaded google-cloud-discoveryengine
+ Downloaded google-adk
+      Built demo-agent @ file:///config/Desktop/Session1/demo-agent
+Installed 120 packages in 89ms
+2026-09-30 04:41:42,135 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:41:42,138 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/demo-agent
+2026-09-30 04:41:42,138 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/demo-agent
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [264252]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:41732 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:41:43,183 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/demo-agent/app/.adk/session.db
+2026-09-30 04:41:43,263 - INFO - api_server.py:1193 - New session created: 9898020e-9ec1-4b02-9b64-be1ff6524fe8
+INFO:     127.0.0.1:41740 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:41:43,284 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/demo-agent/.env
+INFO:     127.0.0.1:41746 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:41:45,021 - INFO - google_llm.py:262 - Sending out request, model: gemini-flash-latest, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:41:45,705 - ERROR - _node_runner.py:161 - Node execution failed with exception
+Traceback (most recent call last):
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 138, in run
+    await self._execute_node(ctx, node_input)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 304, in _execute_node
+    await self._run_node_loop(ctx, node_input)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 318, in _run_node_loop
+    async for event in agen:
+      self._track_event_in_context(event, ctx)
+      await self._enqueue_event(event, ctx)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_base_node.py", line 190, in run
+    async for item in agen:
+    ...<12 lines>...
+        yield Event(output=validated)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 683, in _run_impl
+    async for event in agen:
+    ...<4 lines>...
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_llm_agent_wrapper.py", line 482, in run_llm_agent_as_node
+    async for event in run_iter:
+    ...<31 lines>...
+        break
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 328, in run_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 422, in _run_with_lifecycle
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 392, in _run
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 632, in _run_async_impl
+    async for event in agen:
+    ...<8 lines>...
+        should_pause = True
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 359, in run_async
+    async for event in agen:
+      last_event = event
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 437, in _run_one_step_async
+    async for llm_response in agen:
+    ...<23 lines>...
+          yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 629, in _call_llm_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_model_call.py", line 284, in call_llm_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_model_call.py", line 248, in _call_llm_with_tracing
+    async for llm_response in agen:
+    ...<20 lines>...
+      yield llm_response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 679, in _run_and_handle_error
+    async for response in agen:
+      yield response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_finalizer.py", line 331, in run_and_handle_error
+    raise model_error
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_finalizer.py", line 308, in run_and_handle_error
+    async for llm_response in agen:
+      tel_ctx.record_llm_response(invocation_context, llm_response)
+      yield llm_response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 382, in generate_content_async
+    raise ce
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 354, in generate_content_async
+    response = await self.api_client.aio.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/models.py", line 8403, in generate_content
+    return await self._generate_content(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        model=model, contents=contents, config=final_parsed_config
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/models.py", line 6897, in _generate_content
+    response = await self._api_client.async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'post', path, request_dict, http_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1796, in async_request
+    result = await self._async_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        http_request=http_request, http_options=http_options, stream=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1729, in _async_request
+    return await self._async_retry(  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self._async_request_once, http_request, stream
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/config/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/config/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 402, in __get_result
+    raise self._exception
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1657, in _async_request_once
+    await errors.APIError.raise_for_async_response(response)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 265, in raise_for_async_response
+    await cls.raise_error_async(status_code, response_json, response)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 287, in raise_error_async
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/qwiklabs-gcp-01-9a4afbbb31ee/locations/us-east4/publishers/google/models/gemini-flash-latest` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.', 'status': 'NOT_FOUND'}}
+2026-09-30 04:41:45,732 - ERROR - runners.py:823 - Root node root_agent failed.
+Traceback (most recent call last):
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner_utils.py", line 241, in _drive_root_node
+    await root_ctx._run_node_internal(  # pylint: disable=protected-access
+    ...<3 lines>...
+    )
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/context.py", line 515, in _run_node_internal
+    return await _dynamic_node_scheduler.run_node_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_dynamic_node_scheduler.py", line 738, in run_node_internal
+    raise DynamicNodeFailError(
+    ...<3 lines>...
+    )
+google.adk.workflow._errors.DynamicNodeFailError: Dynamic node root_agent failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 812, in _cleanup_root_task
+    await task
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner_utils.py", line 250, in _drive_root_node
+    raise e.error
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 138, in run
+    await self._execute_node(ctx, node_input)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 304, in _execute_node
+    await self._run_node_loop(ctx, node_input)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 318, in _run_node_loop
+    async for event in agen:
+      self._track_event_in_context(event, ctx)
+      await self._enqueue_event(event, ctx)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_base_node.py", line 190, in run
+    async for item in agen:
+    ...<12 lines>...
+        yield Event(output=validated)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 683, in _run_impl
+    async for event in agen:
+    ...<4 lines>...
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_llm_agent_wrapper.py", line 482, in run_llm_agent_as_node
+    async for event in run_iter:
+    ...<31 lines>...
+        break
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 328, in run_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 422, in _run_with_lifecycle
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 392, in _run
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 632, in _run_async_impl
+    async for event in agen:
+    ...<8 lines>...
+        should_pause = True
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 359, in run_async
+    async for event in agen:
+      last_event = event
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 437, in _run_one_step_async
+    async for llm_response in agen:
+    ...<23 lines>...
+          yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 629, in _call_llm_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_model_call.py", line 284, in call_llm_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_model_call.py", line 248, in _call_llm_with_tracing
+    async for llm_response in agen:
+    ...<20 lines>...
+      yield llm_response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 679, in _run_and_handle_error
+    async for response in agen:
+      yield response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_finalizer.py", line 331, in run_and_handle_error
+    raise model_error
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_finalizer.py", line 308, in run_and_handle_error
+    async for llm_response in agen:
+      tel_ctx.record_llm_response(invocation_context, llm_response)
+      yield llm_response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 382, in generate_content_async
+    raise ce
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 354, in generate_content_async
+    response = await self.api_client.aio.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/models.py", line 8403, in generate_content
+    return await self._generate_content(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        model=model, contents=contents, config=final_parsed_config
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/models.py", line 6897, in _generate_content
+    response = await self._api_client.async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'post', path, request_dict, http_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1796, in async_request
+    result = await self._async_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        http_request=http_request, http_options=http_options, stream=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1729, in _async_request
+    return await self._async_retry(  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self._async_request_once, http_request, stream
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/config/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/config/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 402, in __get_result
+    raise self._exception
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1657, in _async_request_once
+    await errors.APIError.raise_for_async_response(response)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 265, in raise_for_async_response
+    await cls.raise_error_async(status_code, response_json, response)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 287, in raise_error_async
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/qwiklabs-gcp-01-9a4afbbb31ee/locations/us-east4/publishers/google/models/gemini-flash-latest` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.', 'status': 'NOT_FOUND'}}
+2026-09-30 04:41:45,746 - ERROR - api_server.py:2089 - Error in event_generator: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/qwiklabs-gcp-01-9a4afbbb31ee/locations/us-east4/publishers/google/models/gemini-flash-latest` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.', 'status': 'NOT_FOUND'}}
+Traceback (most recent call last):
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner_utils.py", line 241, in _drive_root_node
+    await root_ctx._run_node_internal(  # pylint: disable=protected-access
+    ...<3 lines>...
+    )
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/context.py", line 515, in _run_node_internal
+    return await _dynamic_node_scheduler.run_node_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_dynamic_node_scheduler.py", line 738, in run_node_internal
+    raise DynamicNodeFailError(
+    ...<3 lines>...
+    )
+google.adk.workflow._errors.DynamicNodeFailError: Dynamic node root_agent failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/cli/api_server.py", line 2049, in event_generator
+    async for event in agen:
+    ...<25 lines>...
+        yield f"data: {sse_event}\n\n"
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 1147, in run_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 574, in _run_node_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner_utils.py", line 304, in run_node_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner_utils.py", line 274, in _run
+    await runner._cleanup_root_task(task, runner.agent.name)  # pylint: disable=protected-access
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 812, in _cleanup_root_task
+    await task
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner_utils.py", line 250, in _drive_root_node
+    raise e.error
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 138, in run
+    await self._execute_node(ctx, node_input)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 304, in _execute_node
+    await self._run_node_loop(ctx, node_input)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_node_runner.py", line 318, in _run_node_loop
+    async for event in agen:
+      self._track_event_in_context(event, ctx)
+      await self._enqueue_event(event, ctx)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_base_node.py", line 190, in run
+    async for item in agen:
+    ...<12 lines>...
+        yield Event(output=validated)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 683, in _run_impl
+    async for event in agen:
+    ...<4 lines>...
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/workflow/_llm_agent_wrapper.py", line 482, in run_llm_agent_as_node
+    async for event in run_iter:
+    ...<31 lines>...
+        break
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 328, in run_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 422, in _run_with_lifecycle
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 392, in _run
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 632, in _run_async_impl
+    async for event in agen:
+    ...<8 lines>...
+        should_pause = True
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 359, in run_async
+    async for event in agen:
+      last_event = event
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 437, in _run_one_step_async
+    async for llm_response in agen:
+    ...<23 lines>...
+          yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 629, in _call_llm_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_model_call.py", line 284, in call_llm_async
+    async for event in agen:
+      yield event
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/utils/_runner_utils.py", line 42, in _with_caller_context
+    async for item in a:
+    ...<4 lines>...
+        context.detach(token)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_model_call.py", line 248, in _call_llm_with_tracing
+    async for llm_response in agen:
+    ...<20 lines>...
+      yield llm_response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 679, in _run_and_handle_error
+    async for response in agen:
+      yield response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_finalizer.py", line 331, in run_and_handle_error
+    raise model_error
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/core/_finalizer.py", line 308, in run_and_handle_error
+    async for llm_response in agen:
+      tel_ctx.record_llm_response(invocation_context, llm_response)
+      yield llm_response
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 382, in generate_content_async
+    raise ce
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 354, in generate_content_async
+    response = await self.api_client.aio.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/models.py", line 8403, in generate_content
+    return await self._generate_content(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        model=model, contents=contents, config=final_parsed_config
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/models.py", line 6897, in _generate_content
+    response = await self._api_client.async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'post', path, request_dict, http_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1796, in async_request
+    result = await self._async_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        http_request=http_request, http_options=http_options, stream=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1729, in _async_request
+    return await self._async_retry(  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self._async_request_once, http_request, stream
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/config/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/config/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 402, in __get_result
+    raise self._exception
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1657, in _async_request_once
+    await errors.APIError.raise_for_async_response(response)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 265, in raise_for_async_response
+    await cls.raise_error_async(status_code, response_json, response)
+  File "/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 287, in raise_error_async
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'Publisher model `projects/qwiklabs-gcp-01-9a4afbbb31ee/locations/us-east4/publishers/google/models/gemini-flash-latest` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.', 'status': 'NOT_FOUND'}}
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:41:45,960 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:41:45,960 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [264252]
+=== Starting server at 2026-09-30T04:41:50.189619+00:00 ===
+Command: /config/Desktop/Session1/demo-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/demo-agent
+=== Started server process 264325 ===
+2026-09-30 04:41:51,843 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:41:51,844 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/demo-agent
+2026-09-30 04:41:51,844 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/demo-agent
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [264325]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56798 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:41:52,321 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/demo-agent/app/.adk/session.db
+2026-09-30 04:41:52,340 - INFO - api_server.py:1193 - New session created: 27f15ae2-6f35-468f-aad3-0fce05044d4f
+INFO:     127.0.0.1:56810 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:41:52,354 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/demo-agent/.env
+INFO:     127.0.0.1:56816 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:41:52,963 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:41:54,265 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:41:54,300 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:41:54,793 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:41:54,988 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:41:54,988 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [264325]
+=== Starting server at 2026-09-30T04:41:57.559461+00:00 ===
+Command: /config/Desktop/Session1/demo-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/demo-agent
+=== Started server process 264368 ===
+2026-09-30 04:41:59,210 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:41:59,211 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/demo-agent
+2026-09-30 04:41:59,212 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/demo-agent
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [264368]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:38058 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:41:59,692 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/demo-agent/app/.adk/session.db
+2026-09-30 04:41:59,709 - INFO - api_server.py:1193 - New session created: 70eb07ec-30bb-4568-8933-da8299b69777
+INFO:     127.0.0.1:38066 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:41:59,726 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/demo-agent/.env
+INFO:     127.0.0.1:38078 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:42:00,307 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:42:01,513 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:42:01,550 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:42:02,014 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:42:02,235 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:42:02,235 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [264368]
+=== Starting server at 2026-09-30T04:42:08.192208+00:00 ===
+Command: /config/Desktop/Session1/demo-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18081 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/demo-agent
+=== Started server process 264424 ===
+2026-09-30 04:42:09,804 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:42:09,804 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/demo-agent
+2026-09-30 04:42:09,805 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/demo-agent
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [264424]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18081 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48104 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:42:10,325 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/demo-agent/app/.adk/session.db
+2026-09-30 04:42:10,339 - INFO - api_server.py:1193 - New session created: 64c18685-841e-42be-906d-565b7086db83
+INFO:     127.0.0.1:48108 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:42:10,354 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/demo-agent/.env
+INFO:     127.0.0.1:48110 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/demo-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:42:10,978 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:42:12,125 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:42:12,167 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:42:12,683 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:42:12,902 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:42:12,902 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [264424]
+=== Starting server at 2026-09-30T04:46:44.089928+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Starting server at 2026-09-30T04:46:53.403593+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 265831 ===
+2026-09-30 04:46:56,975 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:46:56,977 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:46:56,978 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [265831]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60094 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:46:57,960 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:46:58,007 - INFO - api_server.py:1193 - New session created: e6e3dfdb-466a-4626-ad6d-c685f3b2abc8
+INFO:     127.0.0.1:60106 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:46:58,023 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:60110 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:47:02,911 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:47:04,237 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:47:04,286 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:47:04,758 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:47:04,950 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:47:04,950 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [265831]
+=== Starting server at 2026-09-30T04:47:55.129014+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18081 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 266284 ===
+2026-09-30 04:47:56,733 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:47:56,734 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:47:56,734 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [266284]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18081 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55084 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:47:57,264 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:47:57,279 - INFO - api_server.py:1193 - New session created: 26b1f606-79a4-4b52-a36e-e05f0cd892b7
+INFO:     127.0.0.1:55094 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:47:57,293 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:55104 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:47:59,764 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:48:01,999 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:48:02,211 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:48:02,211 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [266284]
+=== Starting server at 2026-09-30T04:48:04.854462+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18082 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 266347 ===
+2026-09-30 04:48:06,352 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:48:06,354 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:48:06,354 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [266347]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18082 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58632 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:48:06,987 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:48:07,002 - INFO - api_server.py:1193 - New session created: 65b13d73-a62b-41b6-8f13-8ad48ab65a5a
+INFO:     127.0.0.1:58640 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:48:07,017 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:58642 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:48:09,681 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:48:11,818 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:48:12,211 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:48:13,255 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:48:13,400 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:48:13,400 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [266347]
+=== Starting server at 2026-09-30T04:48:16.216399+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 266430 ===
+2026-09-30 04:48:17,763 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:48:17,764 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:48:17,764 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [266430]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45964 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:48:18,348 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:48:18,363 - INFO - api_server.py:1193 - New session created: d50ef72d-2d49-48a4-9ea8-1d21c01f60e6
+INFO:     127.0.0.1:45978 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:48:18,376 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:45988 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:48:20,849 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:48:22,279 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:48:22,656 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:48:23,252 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:48:23,452 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:48:23,452 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [266430]
+=== Starting server at 2026-09-30T04:49:03.382280+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 266761 ===
+2026-09-30 04:49:04,997 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:49:04,998 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:49:04,998 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [266761]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45640 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:49:05,515 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:49:05,532 - INFO - api_server.py:1193 - New session created: a41ff719-dac3-4e3b-b8f0-ef07e2f355e3
+INFO:     127.0.0.1:45650 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:49:05,548 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:45666 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:49:08,346 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:49:09,977 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:49:10,016 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:49:10,689 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:49:10,892 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:49:10,892 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [266761]
+=== Starting server at 2026-09-30T04:50:20.510853+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 267141 ===
+2026-09-30 04:50:22,151 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:50:22,152 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:50:22,152 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [267141]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33320 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:50:22,948 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:50:22,967 - INFO - api_server.py:1193 - New session created: dc4c60fe-4c49-4ec5-8d0a-049b9765b2da
+INFO:     127.0.0.1:33328 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:50:22,984 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:33336 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:50:25,672 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:50:27,086 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:50:27,224 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:50:27,949 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:50:28,115 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:50:28,115 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [267141]
+=== Starting server at 2026-09-30T04:51:48.400486+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 267550 ===
+2026-09-30 04:51:49,886 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:51:49,886 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:51:49,887 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [267550]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52214 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:51:50,533 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:51:50,552 - INFO - api_server.py:1193 - New session created: 9bc00a95-9192-4242-a484-57f3d1370608
+INFO:     127.0.0.1:52224 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:51:50,569 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:52234 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:51:53,210 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:51:54,608 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:51:54,664 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:51:55,201 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:51:55,363 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:51:55,363 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [267550]
+=== Starting server at 2026-09-30T04:53:55.127864+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 268155 ===
+2026-09-30 04:53:57,068 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:53:57,069 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:53:57,069 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [268155]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50434 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:53:57,862 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:53:57,882 - INFO - api_server.py:1193 - New session created: 517de659-0f13-478d-b9be-897688c2e493
+INFO:     127.0.0.1:50438 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:53:57,900 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:50448 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:54:00,591 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:54:01,861 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:54:01,901 - INFO - models.py:6224 - AFC is enabled with max remote calls: 10.
+2026-09-30 04:54:01,901 - WARNING - models.py:6228 - Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
+2026-09-30 04:54:04,754 - INFO - _client.py:1025 - HTTP Request: POST https://aiplatform.googleapis.com/v1beta1/projects/qwiklabs-gcp-01-9a4afbbb31ee/locations/global/publishers/google/models/gemini-3.1-flash-lite-image:generateContent "HTTP/1.1 200 OK"
+/config/Desktop/Session1/travel-agent/app/agent.py:508: RuntimeWarning: coroutine 'Context.save_artifact' was never awaited
+  tool_context.save_artifact(filename=filename, artifact=artifact_part)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-09-30 04:54:05,951 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:54:06,590 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:54:06,743 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:54:06,743 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [268155]
+=== Starting server at 2026-09-30T04:55:32.865630+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18080 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 268582 ===
+2026-09-30 04:55:34,585 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:55:34,585 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:55:34,586 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [268582]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54728 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:55:35,298 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:55:35,315 - INFO - api_server.py:1193 - New session created: 41ac7b0c-a03a-4968-8b60-c09e75e4dd24
+INFO:     127.0.0.1:54744 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:55:35,328 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:54746 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:55:38,004 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:55:39,466 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:55:39,483 - WARNING - _caller.py:832 - Tool 'run_code' not found.
+Available tools: search_destinations, get_destination_details, add_destination, calculate_trip_budget, fetch_live_destination_weather, generate_destination_image, geocode_address, find_nearby_places, get_weather, get_current_time
+
+Possible causes:
+  1. LLM hallucinated the function name - review agent instruction clarity
+  2. Tool not registered - verify agent.tools list
+  3. Name mismatch - check for typos
+
+Suggested fixes:
+  - Review agent instruction to ensure tool usage is clear
+  - Verify tool is included in agent.tools list
+  - Check for typos in function name
+2026-09-30 04:55:39,507 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:55:41,011 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:55:41,242 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:55:41,243 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [268582]
+=== Starting server at 2026-09-30T04:55:47.902917+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18081 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 268673 ===
+2026-09-30 04:55:49,561 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:55:49,562 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:55:49,562 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [268673]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18081 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56494 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:55:50,335 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:55:50,348 - INFO - api_server.py:1193 - New session created: 6196e0b7-aa26-4d54-9560-7c9399278079
+INFO:     127.0.0.1:56498 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:55:50,363 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:56502 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:55:53,107 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:55:54,823 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:55:54,843 - WARNING - _caller.py:832 - Tool 'run_code' not found.
+Available tools: search_destinations, get_destination_details, add_destination, calculate_trip_budget, fetch_live_destination_weather, generate_destination_image, geocode_address, find_nearby_places, get_weather, get_current_time
+
+Possible causes:
+  1. LLM hallucinated the function name - review agent instruction clarity
+  2. Tool not registered - verify agent.tools list
+  3. Name mismatch - check for typos
+
+Suggested fixes:
+  - Review agent instruction to ensure tool usage is clear
+  - Verify tool is included in agent.tools list
+  - Check for typos in function name
+2026-09-30 04:55:54,865 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:55:56,174 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:55:56,347 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:55:56,347 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [268673]
+=== Starting server at 2026-09-30T04:56:12.954896+00:00 ===
+Command: /config/Desktop/Session1/travel-agent/.venv/bin/adk api_server --host 127.0.0.1 --port 18082 --reload_agents --no-reload .
+CWD: /config/Desktop/Session1/travel-agent
+=== Started server process 268787 ===
+2026-09-30 04:56:14,505 - INFO - service_factory.py:333 - Using in-memory memory service
+2026-09-30 04:56:14,506 - INFO - local_storage.py:89 - Using per-agent session storage rooted at /config/Desktop/Session1/travel-agent
+2026-09-30 04:56:14,506 - INFO - local_storage.py:121 - Using per-agent artifact storage rooted at /config/Desktop/Session1/travel-agent
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:278: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [268787]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18082 (Press CTRL+C to quit)
+INFO:     127.0.0.1:59368 - "GET / HTTP/1.1" 404 Not Found
+2026-09-30 04:56:15,086 - INFO - local_storage.py:65 - Creating local session service at /config/Desktop/Session1/travel-agent/app/.adk/session.db
+2026-09-30 04:56:15,100 - INFO - api_server.py:1193 - New session created: d21539e4-3a12-4c55-a0cd-3e36b93f7ab5
+INFO:     127.0.0.1:59370 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-09-30 04:56:15,113 - INFO - envs.py:83 - Loaded .env file for app at /config/Desktop/Session1/travel-agent/.env
+INFO:     127.0.0.1:59374 - "POST /run_sse HTTP/1.1" 200 OK
+/config/Desktop/Session1/travel-agent/.venv/lib/python3.13/site-packages/google/adk/models/llm_request.py:306: UserWarning: [EXPERIMENTAL] feature FeatureName.JSON_SCHEMA_FOR_FUNC_DECL is enabled.
+  declaration = tool._get_declaration()
+2026-09-30 04:56:17,601 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:56:18,900 - INFO - google_llm.py:359 - Response received from the model.
+2026-09-30 04:56:18,937 - INFO - google_llm.py:262 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-09-30 04:56:19,348 - INFO - google_llm.py:359 - Response received from the model.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-09-30 04:56:19,535 - INFO - runners.py:2140 - Closing runner...
+2026-09-30 04:56:19,535 - INFO - runners.py:2153 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [268787]
